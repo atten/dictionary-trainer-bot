@@ -1,0 +1,16 @@
+.tmp/
+.git/
+.idea/
+.vscode/
+docker/
+dictrainer/config/
+dictrainer/media/
+dictrainer/static/
+dictrainer/usermedia/
+__pycache__
+
+docker-compose*
+Dockerfile
+*.coffee
+*.pyc
+.env

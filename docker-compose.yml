@@ -1,0 +1,49 @@
+version: '3'
+services:
+  web:
+    image: "dictrainer:latest"
+    restart: unless-stopped
+    links:
+      - postgres
+      - redis
+    command: "uwsgi --socket 0.0.0.0:8000 --module=dictrainer.wsgi:application --processes=4 --threads=2"
+    environment:
+      PRODUCTION: 0
+      DOCKERIZED: 1
+      DJANGO_CONFIG_FILE_NAME: dictrainer-docker.yml
+    volumes:
+      - "./docker/config/dictrainer-docker.yml:/app/dictrainer/config/dictrainer-docker.yml"
+      - "static:/app/static/"
+      - "media:/app/media/"
+      - "media_private:/app/media_private/"
+
+  postgres:
+    image: 'postgres:10-alpine'
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DATABASE=dictrainer
+      - POSTGRES_USER=dictrainer
+      - POSTGRES_PASSWORD=dictrainer
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+
+  redis:
+    image: redis:alpine
+
+  nginx:
+    image: nginx:alpine
+    links:
+      - web
+    ports:
+      - "127.0.0.1:8000:80"
+    volumes:
+      - "./docker/config/nginx-proxy-docker.conf:/etc/nginx/conf.d/proxy.conf"
+      - "./docker/config/nginx-docker.conf:/etc/nginx/nginx.conf"
+      - "static:/app/static/"
+      - "media:/app/media/"
+
+volumes:
+  static: {}
+  media: {}
+  media_private: {}
+  postgres: {}

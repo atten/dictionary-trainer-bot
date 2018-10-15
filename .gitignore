@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+
+# Directories
+.idea
+.cache
+dictrainer/media/*
+dictrainer/static/*
+
+# Config files except example
+dictrainer/config/*.yml
+docker/config/dictrainer-docker.yml
+!dictrainer/config/example.yml
+
+# Sphinx built documentation
+docs/_build/
+docs/api_docs.md
+
+# Translations
+*.mo

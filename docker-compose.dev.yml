@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  postgres_dev:
+    image: 'postgres:10-alpine'
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DATABASE=dictrainer
+      - POSTGRES_USER=dictrainer
+      - POSTGRES_PASSWORD=dictrainer
+    volumes:
+      - 'postgres_dev:/var/lib/postgresql/data'
+    ports:
+      - '5433:5432'
+
+  redis_dev:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - 'redis_dev:/data'
+    ports:
+      - '6370:6379'
+
+volumes:
+  postgres_dev: {}
+  redis_dev: {}
+
