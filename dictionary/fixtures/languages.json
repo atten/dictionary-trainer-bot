@@ -1,0 +1,2501 @@
+[
+  {
+    "pk": 1,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "af",
+      "name": "Afrikaans"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "am",
+      "name": "Amharic"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ar",
+      "name": "Arabic"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "as",
+      "name": "Assamese"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "az",
+      "name": "Azerbaijani"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " bal-IR ",
+      "code": "bal",
+      "name": "Balochi"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "be",
+      "name": "Belarusian"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "bg",
+      "name": "Bulgarian"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "bn",
+      "name": "Bengali"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " bn-in bn-IN ",
+      "code": "bn_IN",
+      "name": "Bengali (India)"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "bs",
+      "name": "Bosnian"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ca",
+      "name": "Catalan"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "cs",
+      "name": "Czech"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "cy",
+      "name": "Welsh"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "da",
+      "name": "Danish"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "de",
+      "name": "German",
+      "priority": 10
+    }
+  },
+  {
+    "pk": 17,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " de-ch de-CH ",
+      "code": "de_CH",
+      "name": "German (Switzerland)"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "dz",
+      "name": "Dzongkha"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "el",
+      "name": "Greek"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "en",
+      "name": "English",
+      "priority": 10
+    }
+  },
+  {
+    "pk": 21,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " en-gb en-GB ",
+      "code": "en_GB",
+      "name": "English (United Kingdom)"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " en-za en-ZA ",
+      "code": "en_ZA",
+      "name": "English (South Africa)"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "es",
+      "name": "Spanish (Castilian)"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "et",
+      "name": "Estonian"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "eu",
+      "name": "Basque"
+    }
+  },
+  {
+    "pk": 26,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "fa",
+      "name": "Persian"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "fi",
+      "name": "Finnish"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "fr",
+      "name": "French",
+      "priority": 10
+    }
+  },
+  {
+    "pk": 29,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fur-IT ",
+      "code": "fur",
+      "name": "Friulian"
+    }
+  },
+  {
+    "pk": 30,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "fy",
+      "name": "Western Frisian"
+    }
+  },
+  {
+    "pk": 31,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ga",
+      "name": "Irish"
+    }
+  },
+  {
+    "pk": 32,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "gl",
+      "name": "Galician"
+    }
+  },
+  {
+    "pk": 33,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "gu",
+      "name": "Gujarati"
+    }
+  },
+  {
+    "pk": 34,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "he",
+      "name": "Hebrew"
+    }
+  },
+  {
+    "pk": 35,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "hi",
+      "name": "Hindi"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "hr",
+      "name": "Croatian"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ht",
+      "name": "Haitian (Haitian Creole)"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "hu",
+      "name": "Hungarian"
+    }
+  },
+  {
+    "pk": 39,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "hy",
+      "name": "Armenian"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "id",
+      "name": "Indonesian"
+    }
+  },
+  {
+    "pk": 41,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ilo-PH ",
+      "code": "ilo",
+      "name": "Iloko"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "is",
+      "name": "Icelandic"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "it",
+      "name": "Italian",
+      "priority": 10
+    }
+  },
+  {
+    "pk": 44,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ja",
+      "name": "Japanese"
+    }
+  },
+  {
+    "pk": 45,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ka",
+      "name": "Georgian"
+    }
+  },
+  {
+    "pk": 46,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "kn",
+      "name": "Kannada"
+    }
+  },
+  {
+    "pk": 47,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ko",
+      "name": "Korean"
+    }
+  },
+  {
+    "pk": 48,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ku",
+      "name": "Kurdish"
+    }
+  },
+  {
+    "pk": 49,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "lo",
+      "name": "Lao"
+    }
+  },
+  {
+    "pk": 50,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "lt",
+      "name": "Lithuanian"
+    }
+  },
+  {
+    "pk": 51,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "lv",
+      "name": "Latvian"
+    }
+  },
+  {
+    "pk": 52,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " mai-IN ",
+      "code": "mai",
+      "name": "Maithili"
+    }
+  },
+  {
+    "pk": 53,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "mk",
+      "name": "Macedonian"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ml",
+      "name": "Malayalam"
+    }
+  },
+  {
+    "pk": 55,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "mn",
+      "name": "Mongolian"
+    }
+  },
+  {
+    "pk": 56,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "mr",
+      "name": "Marathi"
+    }
+  },
+  {
+    "pk": 57,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ms",
+      "name": "Malay"
+    }
+  },
+  {
+    "pk": 58,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "mt",
+      "name": "Maltese"
+    }
+  },
+  {
+    "pk": 59,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "my",
+      "name": "Burmese"
+    }
+  },
+  {
+    "pk": 60,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "nb",
+      "name": "Norwegian Bokm\u00e5l"
+    }
+  },
+  {
+    "pk": 61,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ne",
+      "name": "Nepali"
+    }
+  },
+  {
+    "pk": 62,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "nl",
+      "name": "Dutch"
+    }
+  },
+  {
+    "pk": 63,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "nn",
+      "name": "Norwegian Nynorsk"
+    }
+  },
+  {
+    "pk": 64,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "no",
+      "name": "Norwegian"
+    }
+  },
+  {
+    "pk": 65,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " nso-ZA ",
+      "code": "nso",
+      "name": "Northern Sotho"
+    }
+  },
+  {
+    "pk": 66,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "or",
+      "name": "Oriya"
+    }
+  },
+  {
+    "pk": 67,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "pa",
+      "name": "Panjabi (Punjabi)"
+    }
+  },
+  {
+    "pk": 68,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "pl",
+      "name": "Polish"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "pt",
+      "name": "Portuguese"
+    }
+  },
+  {
+    "pk": 70,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " pt-br pt-BR ",
+      "code": "pt_BR",
+      "name": "Portuguese (Brazil)"
+    }
+  },
+  {
+    "pk": 71,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ro",
+      "name": "Romanian"
+    }
+  },
+  {
+    "pk": 72,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ru",
+      "name": "Russian",
+      "priority": 10
+    }
+  },
+  {
+    "pk": 73,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "si",
+      "name": "Sinhala"
+    }
+  },
+  {
+    "pk": 74,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sk",
+      "name": "Slovak"
+    }
+  },
+  {
+    "pk": 75,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sl",
+      "name": "Slovenian"
+    }
+  },
+  {
+    "pk": 76,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sq",
+      "name": "Albanian"
+    }
+  },
+  {
+    "pk": 77,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sr",
+      "name": "Serbian"
+    }
+  },
+  {
+    "pk": 78,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " sr@Latin sr@latn sr@Latn sr-Latn sr_Latn ",
+      "code": "sr@latin",
+      "name": "Serbian (Latin)"
+    }
+  },
+  {
+    "pk": 79,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "st",
+      "name": "Sotho, Southern"
+    }
+  },
+  {
+    "pk": 80,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sv",
+      "name": "Swedish"
+    }
+  },
+  {
+    "pk": 81,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ta",
+      "name": "Tamil"
+    }
+  },
+  {
+    "pk": 82,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "te",
+      "name": "Telugu"
+    }
+  },
+  {
+    "pk": 83,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "tg",
+      "name": "Tajik"
+    }
+  },
+  {
+    "pk": 84,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "th",
+      "name": "Thai"
+    }
+  },
+  {
+    "pk": 85,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "tl",
+      "name": "Tagalog"
+    }
+  },
+  {
+    "pk": 86,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "tr",
+      "name": "Turkish"
+    }
+  },
+  {
+    "pk": 87,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ur",
+      "name": "Urdu"
+    }
+  },
+  {
+    "pk": 88,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "uk",
+      "name": "Ukrainian"
+    }
+  },
+  {
+    "pk": 89,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "vi",
+      "name": "Vietnamese"
+    }
+  },
+  {
+    "pk": 90,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "wo",
+      "name": "Wolof"
+    }
+  },
+  {
+    "pk": 91,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " zh-cn zh-CN ",
+      "code": "zh_CN",
+      "name": "Chinese (China)"
+    }
+  },
+  {
+    "pk": 92,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " zh-hk zh-HK ",
+      "code": "zh_HK",
+      "name": "Chinese (Hong Kong)"
+    }
+  },
+  {
+    "pk": 93,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " zh-tw zh-TW ",
+      "code": "zh_TW",
+      "name": "Chinese (Taiwan)"
+    }
+  },
+  {
+    "pk": 94,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "zu",
+      "name": "Zulu"
+    }
+  },
+  {
+    "pk": 95,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-AR ",
+      "code": "es_AR",
+      "name": "Spanish (Argentina)"
+    }
+  },
+  {
+    "pk": 96,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "bo",
+      "name": "Tibetan"
+    }
+  },
+  {
+    "pk": 97,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ast-ES ",
+      "code": "ast",
+      "name": "Asturian"
+    }
+  },
+  {
+    "pk": 98,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " en-US ",
+      "code": "en_US",
+      "name": "English (United States)"
+    }
+  },
+  {
+    "pk": 99,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "eo",
+      "name": "Esperanto"
+    }
+  },
+  {
+    "pk": 100,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ks",
+      "name": "Kashmiri"
+    }
+  },
+  {
+    "pk": 101,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ky",
+      "name": "Kirgyz"
+    }
+  },
+  {
+    "pk": 102,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "la",
+      "name": "Latin"
+    }
+  },
+  {
+    "pk": 103,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "xh",
+      "name": "Xhosa"
+    }
+  },
+  {
+    "pk": 104,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-mx es-MX ",
+      "code": "es_MX",
+      "name": "Spanish (Mexico)"
+    }
+  },
+  {
+    "pk": 105,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "km",
+      "name": "Khmer"
+    }
+  },
+  {
+    "pk": 106,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "fo",
+      "name": "Faroese"
+    }
+  },
+  {
+    "pk": 107,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "kk",
+      "name": "Kazakh"
+    }
+  },
+  {
+    "pk": 108,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fr-CA fr-ca fr_ca ",
+      "code": "fr_CA",
+      "name": "French (Canada)"
+    }
+  },
+  {
+    "pk": 109,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " nl-BE ",
+      "code": "nl_BE",
+      "name": "Dutch (Belgium)"
+    }
+  },
+  {
+    "pk": 110,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "wa",
+      "name": "Walloon"
+    }
+  },
+  {
+    "pk": 111,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " en-AU en-au en_au ",
+      "code": "en_AU",
+      "name": "English (Australia)"
+    }
+  },
+  {
+    "pk": 112,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ca_ES@valencia ca_es@valencia ca-ES@valencia ",
+      "code": "ca@valencia",
+      "name": "Catalan (Valencian)"
+    }
+  },
+  {
+    "pk": 113,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-ES es_es ",
+      "code": "es_ES",
+      "name": "Spanish (Spain)",
+      "priority": 10
+    }
+  },
+  {
+    "pk": 114,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " bn-BD bn-bd ",
+      "code": "bn_BD",
+      "name": "Bengali (Bangladesh)"
+    }
+  },
+  {
+    "pk": 115,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sw",
+      "name": "Swahili"
+    }
+  },
+  {
+    "pk": 116,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "tk",
+      "name": "Turkmen"
+    }
+  },
+  {
+    "pk": 117,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "uz",
+      "name": "Uzbek"
+    }
+  },
+  {
+    "pk": 118,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sco",
+      "name": "Scots"
+    }
+  },
+  {
+    "pk": 119,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "lb",
+      "name": "Luxembourgish"
+    }
+  },
+  {
+    "pk": 120,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ln",
+      "name": "Lingala"
+    }
+  },
+  {
+    "pk": 121,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "tt",
+      "name": "Tatar"
+    }
+  },
+  {
+    "pk": 122,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "fil",
+      "name": "Filipino"
+    }
+  },
+  {
+    "pk": 123,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "gun",
+      "name": "Gun"
+    }
+  },
+  {
+    "pk": 124,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "pms",
+      "name": "Piemontese"
+    }
+  },
+  {
+    "pk": 125,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "arn",
+      "name": "Mapudungun"
+    }
+  },
+  {
+    "pk": 126,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "rm",
+      "name": "Romansh"
+    }
+  },
+  {
+    "pk": 127,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "jv",
+      "name": "Javanese"
+    }
+  },
+  {
+    "pk": 128,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "oc",
+      "name": "Occitan (post 1500)"
+    }
+  },
+  {
+    "pk": 129,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ps",
+      "name": "Pushto"
+    }
+  },
+  {
+    "pk": 130,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ha",
+      "name": "Hausa"
+    }
+  },
+  {
+    "pk": 131,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "mg",
+      "name": "Malagasy"
+    }
+  },
+  {
+    "pk": 132,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "mi",
+      "name": "Maori"
+    }
+  },
+  {
+    "pk": 133,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ug",
+      "name": "Uighur"
+    }
+  },
+  {
+    "pk": 134,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ak",
+      "name": "Akan"
+    }
+  },
+  {
+    "pk": 135,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "an",
+      "name": "Aragonese"
+    }
+  },
+  {
+    "pk": 136,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "su",
+      "name": "Sundanese"
+    }
+  },
+  {
+    "pk": 137,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "pap",
+      "name": "Papiamento"
+    }
+  },
+  {
+    "pk": 138,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "nah",
+      "name": "Nahuatl"
+    }
+  },
+  {
+    "pk": 139,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "csb",
+      "name": "Kashubian"
+    }
+  },
+  {
+    "pk": 140,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "nap",
+      "name": "Neapolitan"
+    }
+  },
+  {
+    "pk": 141,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "kw",
+      "name": "Cornish"
+    }
+  },
+  {
+    "pk": 142,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ve",
+      "name": "Venda"
+    }
+  },
+  {
+    "pk": 143,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "son",
+      "name": "Songhay"
+    }
+  },
+  {
+    "pk": 144,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " en-CA en-ca en_ca ",
+      "code": "en_CA",
+      "name": "English (Canada)"
+    }
+  },
+  {
+    "pk": 145,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "rw",
+      "name": "Kinyarwanda"
+    }
+  },
+  {
+    "pk": 146,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "crh",
+      "name": "Crimean Turkish"
+    }
+  },
+  {
+    "pk": 147,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "li",
+      "name": "Limburgian"
+    }
+  },
+  {
+    "pk": 148,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-VE es-ve es_ve ",
+      "code": "es_VE",
+      "name": "Spanish (Venezuela)"
+    }
+  },
+  {
+    "pk": 149,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "frp",
+      "name": "Franco-Proven\u00e7al (Arpitan)"
+    }
+  },
+  {
+    "pk": 150,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "yi",
+      "name": "Yiddish"
+    }
+  },
+  {
+    "pk": 151,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fr-FR fr-fr fr_fr ",
+      "code": "fr_FR",
+      "name": "French (France)"
+    }
+  },
+  {
+    "pk": 152,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " de-DE de-de de_de  ",
+      "code": "de_DE",
+      "name": "German (Germany)"
+    }
+  },
+  {
+    "pk": 153,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "yo",
+      "name": "Yoruba"
+    }
+  },
+  {
+    "pk": 154,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ig",
+      "name": "Igbo"
+    }
+  },
+  {
+    "pk": 155,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-PR es-pr es_pr ",
+      "code": "es_PR",
+      "name": "Spanish (Puerto Rico)"
+    }
+  },
+  {
+    "pk": 156,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "nds",
+      "name": "Low German"
+    }
+  },
+  {
+    "pk": 157,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "nr",
+      "name": "Ndebele, South"
+    }
+  },
+  {
+    "pk": 158,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "gd",
+      "name": "Gaelic, Scottish"
+    }
+  },
+  {
+    "pk": 159,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-CL es-cl es_cl ",
+      "code": "es_CL",
+      "name": "Spanish (Chile)"
+    }
+  },
+  {
+    "pk": 160,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " en-IE en-ie en_ie ",
+      "code": "en_IE",
+      "name": "English (Ireland)"
+    }
+  },
+  {
+    "pk": 161,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ta-LK ta-lk ta_lk ",
+      "code": "ta_LK",
+      "name": "Tamil (Sri-Lanka)"
+    }
+  },
+  {
+    "pk": 162,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "se",
+      "name": "Northern Sami"
+    }
+  },
+  {
+    "pk": 163,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "hsb",
+      "name": "Upper Sorbian"
+    }
+  },
+  {
+    "pk": 164,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "hne",
+      "name": "Chhattisgarhi"
+    }
+  },
+  {
+    "pk": 165,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ia",
+      "name": "Interlingua"
+    }
+  },
+  {
+    "pk": 166,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sc",
+      "name": "Sardinian"
+    }
+  },
+  {
+    "pk": 167,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-CO es-co ",
+      "code": "es_CO",
+      "name": "Spanish (Colombia)"
+    }
+  },
+  {
+    "pk": 168,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-DO es-do ",
+      "code": "es_DO",
+      "name": "Spanish (Dominican Republic)"
+    }
+  },
+  {
+    "pk": 169,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-PY es-py ",
+      "code": "es_PY",
+      "name": "Spanish (Paraguay)"
+    }
+  },
+  {
+    "pk": 170,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-CR es-cr ",
+      "code": "es_CR",
+      "name": "Spanish (Costa Rica)"
+    }
+  },
+  {
+    "pk": 171,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-NI es-ni ",
+      "code": "es_NI",
+      "name": "Spanish (Nicaragua)"
+    }
+  },
+  {
+    "pk": 172,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-EC es-ec ",
+      "code": "es_EC",
+      "name": "Spanish (Ecuador)"
+    }
+  },
+  {
+    "pk": 173,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-PE es-pe ",
+      "code": "es_PE",
+      "name": "Spanish (Peru)"
+    }
+  },
+  {
+    "pk": 174,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-UY es-uy ",
+      "code": "es_UY",
+      "name": "Spanish (Uruguay)"
+    }
+  },
+  {
+    "pk": 175,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-BO es-bo ",
+      "code": "es_BO",
+      "name": "Spanish (Bolivia)"
+    }
+  },
+  {
+    "pk": 176,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-PA es-pa ",
+      "code": "es_PA",
+      "name": "Spanish (Panama)"
+    }
+  },
+  {
+    "pk": 177,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " es-SV es-sv ",
+      "code": "es_SV",
+      "name": "Spanish (El Salvador)"
+    }
+  },
+  {
+    "pk": 178,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ru-RU ru-ru ",
+      "code": "ru_RU",
+      "name": "Russian (Russia)"
+    }
+  },
+  {
+    "pk": 179,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ca-ES ca-es ",
+      "code": "ca_ES",
+      "name": "Catalan (Spain)"
+    }
+  },
+  {
+    "pk": 180,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " it-IT it-it ",
+      "code": "it_IT",
+      "name": "Italian (Italy)"
+    }
+  },
+  {
+    "pk": 181,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " uk-UA uk-ua ",
+      "code": "uk_UA",
+      "name": "Ukrainian (Ukraine)"
+    }
+  },
+  {
+    "pk": 182,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " hu-HU hu-hu ",
+      "code": "hu_HU",
+      "name": "Hungarian (Hungary)"
+    }
+  },
+  {
+    "pk": 183,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ti",
+      "name": "Tigrinya"
+    }
+  },
+  {
+    "pk": 184,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "br",
+      "name": "Breton"
+    }
+  },
+  {
+    "pk": 185,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "so",
+      "name": "Somali"
+    }
+  },
+  {
+    "pk": 186,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " af-ZA af-za ",
+      "code": "af_ZA",
+      "name": "Afrikaans (South Africa)"
+    }
+  },
+  {
+    "pk": 187,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " sq-AL sq-al ",
+      "code": "sq_AL",
+      "name": "Albanian (Albania)"
+    }
+  },
+  {
+    "pk": 188,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " am-ET am-et ",
+      "code": "am_ET",
+      "name": "Amharic (Ethiopia)"
+    }
+  },
+  {
+    "pk": 189,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ar-SA ar-sa ",
+      "code": "ar_SA",
+      "name": "Arabic (Saudi Arabia)"
+    }
+  },
+  {
+    "pk": 190,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " hy-AM hy-am ",
+      "code": "hy_AM",
+      "name": "Armenian (Armenia)"
+    }
+  },
+  {
+    "pk": 191,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " as-IN as-in ",
+      "code": "as_IN",
+      "name": "Assamese (India)"
+    }
+  },
+  {
+    "pk": 192,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " az-AZ az-az ",
+      "code": "az_AZ",
+      "name": "Azerbaijani (Azerbaijan)"
+    }
+  },
+  {
+    "pk": 193,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " eu-ES eu-es ",
+      "code": "eu_ES",
+      "name": "Basque (Spain)"
+    }
+  },
+  {
+    "pk": 194,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " be-BY be-by ",
+      "code": "be_BY",
+      "name": "Belarusian (Belarus)"
+    }
+  },
+  {
+    "pk": 195,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " bs-BA bs-ba ",
+      "code": "bs_BA",
+      "name": "Bosnian (Bosnia and Herzegovina)"
+    }
+  },
+  {
+    "pk": 196,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " bg-BG bg-bg ",
+      "code": "bg_BG",
+      "name": "Bulgarian (Bulgaria)"
+    }
+  },
+  {
+    "pk": 197,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " my-MM my-mm ",
+      "code": "my_MM",
+      "name": "Burmese (Myanmar)"
+    }
+  },
+  {
+    "pk": 198,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " hr-HR hr-hr ",
+      "code": "hr_HR",
+      "name": "Croatian (Croatia)"
+    }
+  },
+  {
+    "pk": 199,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " cs-CZ cs-cz ",
+      "code": "cs_CZ",
+      "name": "Czech (Czech Republic)"
+    }
+  },
+  {
+    "pk": 200,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " da-DK da-dk ",
+      "code": "da_DK",
+      "name": "Danish (Denmark)"
+    }
+  },
+  {
+    "pk": 201,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " nl-NL nl-nl ",
+      "code": "nl_NL",
+      "name": "Dutch (Netherlands)"
+    }
+  },
+  {
+    "pk": 202,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " dz-BT dz-bt ",
+      "code": "dz_BT",
+      "name": "Dzongkha (Bhutan)"
+    }
+  },
+  {
+    "pk": 203,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " et-EE et-ee ",
+      "code": "et_EE",
+      "name": "Estonian (Estonia)"
+    }
+  },
+  {
+    "pk": 204,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fo-FO fo-fo ",
+      "code": "fo_FO",
+      "name": "Faroese (Faroe Islands)"
+    }
+  },
+  {
+    "pk": 205,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fi-FI fi-fi ",
+      "code": "fi_FI",
+      "name": "Finnish (Finland)"
+    }
+  },
+  {
+    "pk": 206,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " gl-ES gl-es ",
+      "code": "gl_ES",
+      "name": "Galician (Spain)"
+    }
+  },
+  {
+    "pk": 207,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ka-GE ka-ge ",
+      "code": "ka_GE",
+      "name": "Georgian (Georgia)"
+    }
+  },
+  {
+    "pk": 208,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " el-GR el-gr ",
+      "code": "el_GR",
+      "name": "Greek (Greece)"
+    }
+  },
+  {
+    "pk": 209,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " gu-IN gu-in ",
+      "code": "gu_IN",
+      "name": "Gujarati (India)"
+    }
+  },
+  {
+    "pk": 210,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ht-HT ht-ht ",
+      "code": "ht_HT",
+      "name": "Haitian (Haitian Creole) (Haiti)"
+    }
+  },
+  {
+    "pk": 211,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " he-IL he-il ",
+      "code": "he_IL",
+      "name": "Hebrew (Israel)"
+    }
+  },
+  {
+    "pk": 212,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " hi-IN hi-in ",
+      "code": "hi_IN",
+      "name": "Hindi (India)"
+    }
+  },
+  {
+    "pk": 213,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " is-IS is-is ",
+      "code": "is_IS",
+      "name": "Icelandic (Iceland)"
+    }
+  },
+  {
+    "pk": 214,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " id-ID id-id ",
+      "code": "id_ID",
+      "name": "Indonesian (Indonesia)"
+    }
+  },
+  {
+    "pk": 215,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ga-IE ga-ie ",
+      "code": "ga_IE",
+      "name": "Irish (Ireland)"
+    }
+  },
+  {
+    "pk": 216,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ja-JP ja-jp ",
+      "code": "ja_JP",
+      "name": "Japanese (Japan)"
+    }
+  },
+  {
+    "pk": 217,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " kn-IN kn-in ",
+      "code": "kn_IN",
+      "name": "Kannada (India)"
+    }
+  },
+  {
+    "pk": 218,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ks-IN ks-in ",
+      "code": "ks_IN",
+      "name": "Kashmiri (India)"
+    }
+  },
+  {
+    "pk": 219,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " km-KH km-kh ",
+      "code": "km_KH",
+      "name": "Khmer (Cambodia)"
+    }
+  },
+  {
+    "pk": 220,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ko-KR ko-kr ",
+      "code": "ko_KR",
+      "name": "Korean (Korea)"
+    }
+  },
+  {
+    "pk": 221,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ku-IQ ku-iq ",
+      "code": "ku_IQ",
+      "name": "Kurdish (Iraq)"
+    }
+  },
+  {
+    "pk": 222,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " lo-LA lo-la ",
+      "code": "lo_LA",
+      "name": "Lao (Laos)"
+    }
+  },
+  {
+    "pk": 223,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " lv-LV lv-lv ",
+      "code": "lv_LV",
+      "name": "Latvian (Latvia)"
+    }
+  },
+  {
+    "pk": 224,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " lt-LT lt-lt ",
+      "code": "lt_LT",
+      "name": "Lithuanian (Lithuania)"
+    }
+  },
+  {
+    "pk": 225,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " mk-MK mk-mk ",
+      "code": "mk_MK",
+      "name": "Macedonian (Macedonia)"
+    }
+  },
+  {
+    "pk": 226,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ms-MY ms-my ",
+      "code": "ms_MY",
+      "name": "Malay (Malaysia)"
+    }
+  },
+  {
+    "pk": 227,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ml-IN ml-in ",
+      "code": "ml_IN",
+      "name": "Malayalam (India)"
+    }
+  },
+  {
+    "pk": 228,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " mt-MT mt-mt ",
+      "code": "mt_MT",
+      "name": "Maltese (Malta)"
+    }
+  },
+  {
+    "pk": 229,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " mr-IN mr-in ",
+      "code": "mr_IN",
+      "name": "Marathi (India)"
+    }
+  },
+  {
+    "pk": 230,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " mn-MN mn-mn ",
+      "code": "mn_MN",
+      "name": "Mongolian (Mongolia)"
+    }
+  },
+  {
+    "pk": 231,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ne-NP ne-np ",
+      "code": "ne_NP",
+      "name": "Nepali (Nepal)"
+    }
+  },
+  {
+    "pk": 232,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " no-NO no-no ",
+      "code": "no_NO",
+      "name": "Norwegian (Norway)"
+    }
+  },
+  {
+    "pk": 233,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " nb-NO nb-no ",
+      "code": "nb_NO",
+      "name": "Norwegian Bokm\u00e5l (Norway)"
+    }
+  },
+  {
+    "pk": 234,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " nn-NO nn-no ",
+      "code": "nn_NO",
+      "name": "Norwegian Nynorsk (Norway)"
+    }
+  },
+  {
+    "pk": 235,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " or-IN or-in ",
+      "code": "or_IN",
+      "name": "Oriya (India)"
+    }
+  },
+  {
+    "pk": 236,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " pa-IN pa-in ",
+      "code": "pa_IN",
+      "name": "Panjabi (Punjabi) (India)"
+    }
+  },
+  {
+    "pk": 237,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fa-IR fa-ir ",
+      "code": "fa_IR",
+      "name": "Persian (Iran)"
+    }
+  },
+  {
+    "pk": 238,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " pl-PL pl-pl ",
+      "code": "pl_PL",
+      "name": "Polish (Poland)"
+    }
+  },
+  {
+    "pk": 239,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " pt-PT pt-pt ",
+      "code": "pt_PT",
+      "name": "Portuguese (Portugal)"
+    }
+  },
+  {
+    "pk": 240,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ro-RO ro-ro ",
+      "code": "ro_RO",
+      "name": "Romanian (Romania)"
+    }
+  },
+  {
+    "pk": 241,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " sr-RS sr-rs ",
+      "code": "sr_RS",
+      "name": "Serbian (Serbia)"
+    }
+  },
+  {
+    "pk": 242,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " si-LK si-lk ",
+      "code": "si_LK",
+      "name": "Sinhala (Sri Lanka)"
+    }
+  },
+  {
+    "pk": 243,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " sk-SK sk-sk ",
+      "code": "sk_SK",
+      "name": "Slovak (Slovakia)"
+    }
+  },
+  {
+    "pk": 244,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " sl-SI sl-si ",
+      "code": "sl_SI",
+      "name": "Slovenian (Slovenia)"
+    }
+  },
+  {
+    "pk": 245,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " st-ZA st-za ",
+      "code": "st_ZA",
+      "name": "Sotho, Southern (South Africa)"
+    }
+  },
+  {
+    "pk": 246,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " sv-SE sv-se ",
+      "code": "sv_SE",
+      "name": "Swedish (Sweden)"
+    }
+  },
+  {
+    "pk": 247,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " tl-PH tl-ph ",
+      "code": "tl_PH",
+      "name": "Tagalog (Philippines)"
+    }
+  },
+  {
+    "pk": 248,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " tg-TJ tg-tj ",
+      "code": "tg_TJ",
+      "name": "Tajik (Tajikistan)"
+    }
+  },
+  {
+    "pk": 249,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ta-IN ta-in ",
+      "code": "ta_IN",
+      "name": "Tamil (India)"
+    }
+  },
+  {
+    "pk": 250,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " te-IN te-in ",
+      "code": "te_IN",
+      "name": "Telugu (India)"
+    }
+  },
+  {
+    "pk": 251,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " th-TH th-th ",
+      "code": "th_TH",
+      "name": "Thai (Thailand)"
+    }
+  },
+  {
+    "pk": 252,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " bo-CN bo-cn ",
+      "code": "bo_CN",
+      "name": "Tibetan (China)"
+    }
+  },
+  {
+    "pk": 253,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " tr-TR tr-tr ",
+      "code": "tr_TR",
+      "name": "Turkish (Turkey)"
+    }
+  },
+  {
+    "pk": 254,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ur-PK ur-pk ",
+      "code": "ur_PK",
+      "name": "Urdu (Pakistan)"
+    }
+  },
+  {
+    "pk": 255,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " vi-VN vi-vn ",
+      "code": "vi_VN",
+      "name": "Vietnamese (Viet Nam)"
+    }
+  },
+  {
+    "pk": 256,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " cy-GB cy-gb ",
+      "code": "cy_GB",
+      "name": "Welsh (United Kingdom)"
+    }
+  },
+  {
+    "pk": 257,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fy-NL fy-nl ",
+      "code": "fy_NL",
+      "name": "Western Frisian (Netherlands)"
+    }
+  },
+  {
+    "pk": 258,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " wo-SN wo-sn ",
+      "code": "wo_SN",
+      "name": "Wolof (Senegal)"
+    }
+  },
+  {
+    "pk": 259,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " zu-ZA zu-za ",
+      "code": "zu_ZA",
+      "name": "Zulu (South Africa)"
+    }
+  },
+  {
+    "pk": 260,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "be@tarask",
+      "name": "Belarusian (Tarask)"
+    }
+  },
+  {
+    "pk": 261,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " sr-RS@latin sr-rs@latin sr_RS@latn sr-RS@latn ",
+      "code": "sr_RS@latin",
+      "name": "Serbian (Latin) (Serbia)"
+    }
+  },
+  {
+    "pk": 262,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "zh",
+      "name": "Chinese"
+    }
+  },
+  {
+    "pk": 263,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "to",
+      "name": "Tongan"
+    }
+  },
+  {
+    "pk": 264,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sm",
+      "name": "Samoan"
+    }
+  },
+  {
+    "pk": 265,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "vls",
+      "name": "Vlaams"
+    }
+  },
+  {
+    "pk": 266,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sv_FI",
+      "name": "Swedish (Finland)"
+    }
+  },
+  {
+    "pk": 267,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " fr-CH fr-ch ",
+      "code": "fr_CH",
+      "name": "French (Switzerland)"
+    }
+  },
+  {
+    "pk": 268,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "zh_CN.GB2312",
+      "name": "Chinese (China) (GB2312)"
+    }
+  },
+  {
+    "pk": 269,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "zh_TW.Big5",
+      "name": "Chinese (Taiwan) (Big5) "
+    }
+  },
+  {
+    "pk": 270,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "aln",
+      "name": "Albanian Gheg"
+    }
+  },
+  {
+    "pk": 271,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "tlh",
+      "name": "Klingon"
+    }
+  },
+  {
+    "pk": 272,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sw_KE",
+      "name": "Swahili (Kenya)"
+    }
+  },
+  {
+    "pk": 273,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "kk_KZ",
+      "name": "Kazakh (Kazakhstan)"
+    }
+  },
+  {
+    "pk": 274,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "sn",
+      "name": "Shona"
+    }
+  },
+  {
+    "pk": 275,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "ar_AA",
+      "name": "Arabic (Unitag)"
+    }
+  },
+  {
+    "pk": 276,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "brx",
+      "name": "Bodo"
+    }
+  },
+  {
+    "pk": 277,
+    "model": "dictionary.language",
+    "fields": {
+      "code_aliases": " ",
+      "code": "udm",
+      "name": "Udmurt"
+  	}
+  }
+] 

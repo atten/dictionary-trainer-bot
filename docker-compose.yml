@@ -9,7 +9,6 @@ services:
     command: "uwsgi --socket 0.0.0.0:8000 --module=dictrainer.wsgi:application --processes=4 --threads=2"
     environment:
       PRODUCTION: 0
-      DOCKERIZED: 1
       DJANGO_CONFIG_FILE_NAME: dictrainer-docker.yml
     volumes:
       - "./docker/config/dictrainer-docker.yml:/app/dictrainer/config/dictrainer-docker.yml"

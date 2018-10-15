@@ -23,4 +23,6 @@ RUN mkdir /app/dictrainer/static && \
 
 USER appuser
 
+ENV DOCKERIZED=1
+
 EXPOSE 8000

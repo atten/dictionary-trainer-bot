@@ -10,6 +10,7 @@ django-docker-helpers = "*"
 "psycopg2-binary" = "*"
 uwsgi = "*"
 hiredis = "*"
+django-model-utils = "*"
 
 [dev-packages]
 
