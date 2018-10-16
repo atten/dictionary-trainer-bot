@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker push dictrainer:latest
-docker push dictrainer:0.0.1
+docker push atten/dictrainer:latest
+docker push atten/dictrainer:0.0.1

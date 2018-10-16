@@ -65,6 +65,13 @@ INSTALLED_APPS = [
     # 'django.contrib.sites',
 
     'dictionary',
+    'bot',
+]
+
+
+AUTHENTICATION_BACKENDS = [
+    'dictionary.permissions.DictionaryPermissionsBackend',
+    'django.contrib.auth.backends.ModelBackend'
 ]
 
 
@@ -202,3 +209,20 @@ if configure('raven', False):
         'dsn': configure('raven.dsn', None),
         'release': __version__,
     }
+
+
+# MODULES
+# =======
+
+# BOT
+BOT = {
+    'TOKEN': configure('bot.token'),
+    'THREADED': configure('bot.threaded', False, coerce_type=bool),
+    'PROXY': {
+        'http': configure('bot.proxy.http'),
+        'https': configure('bot.proxy.https'),
+    }
+}
+
+# dictionary
+RECENT_PHRASES = configure('dictionary.recent_phrases', 40, coerce_type=int)

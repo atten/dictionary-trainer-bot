@@ -1,20 +1,32 @@
 version: '3'
 services:
   web:
-    image: "dictrainer:latest"
+    image: "atten/dictrainer:latest"
     restart: unless-stopped
     links:
       - postgres
       - redis
-    command: "uwsgi --socket 0.0.0.0:8000 --module=dictrainer.wsgi:application --processes=4 --threads=2"
+    command: "uwsgi --socket 0.0.0.0:8000 --module=dictrainer.wsgi:application --processes=1 --threads=1"
     environment:
       PRODUCTION: 0
       DJANGO_CONFIG_FILE_NAME: dictrainer-docker.yml
     volumes:
       - "./docker/config/dictrainer-docker.yml:/app/dictrainer/config/dictrainer-docker.yml"
       - "static:/app/static/"
-      - "media:/app/media/"
-      - "media_private:/app/media_private/"
+
+  bot:
+    image: "atten/dictrainer:latest"
+    restart: unless-stopped
+    links:
+      - postgres
+      - redis
+    command: "./manage.py run_bot"
+    environment:
+      PRODUCTION: 0
+      DJANGO_CONFIG_FILE_NAME: dictrainer-docker.yml
+    volumes:
+      - "./docker/config/dictrainer-docker.yml:/app/dictrainer/config/dictrainer-docker.yml"
+      - "static:/app/static/"
 
   postgres:
     image: 'postgres:10-alpine'
@@ -28,6 +40,8 @@ services:
 
   redis:
     image: redis:alpine
+    volumes:
+      - 'redis:/data'
 
   nginx:
     image: nginx:alpine
@@ -39,10 +53,8 @@ services:
       - "./docker/config/nginx-proxy-docker.conf:/etc/nginx/conf.d/proxy.conf"
       - "./docker/config/nginx-docker.conf:/etc/nginx/nginx.conf"
       - "static:/app/static/"
-      - "media:/app/media/"
 
 volumes:
   static: {}
-  media: {}
-  media_private: {}
   postgres: {}
+  redis: {}

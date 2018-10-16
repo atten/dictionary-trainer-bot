@@ -1,9 +1,6 @@
 from django.contrib import admin
-from django.urls import reverse_lazy
-from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
 
-from .models import Language, Phrase, PhraseAlias, Dictionary
+from .models import Language, Phrase, PhraseGroup, Dictionary, PhraseUserStat, DictionaryUserStat
 
 
 @admin.register(Language)
@@ -13,18 +10,39 @@ class LanguageAdmin(admin.ModelAdmin):
 
 
 @admin.register(Phrase)
-class LanguageAdmin(admin.ModelAdmin):
-    list_display = ('lang', 'user', 'text')
+class PhraseAdmin(admin.ModelAdmin):
+    list_display = ('lang', 'user', 'text', 'created', 'modified')
     autocomplete_fields = ['lang', 'user']
+    search_fields = ['text']
+    ordering = ['-id']
 
 
-@admin.register(PhraseAlias)
-class LanguageAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user')
-    autocomplete_fields = ['user']
+@admin.register(PhraseGroup)
+class PhraseGroupAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'created', 'modified')
+    autocomplete_fields = ['user', 'dictionaries', 'phrases']
+    search_fields = ['dictionaries', 'phrases']
+    ordering = ['-id']
 
 
 @admin.register(Dictionary)
-class LanguageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'user',)
-    autocomplete_fields = ['user']
+class DictionaryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'user', 'created', 'modified')
+    autocomplete_fields = ['user', 'editors', 'viewers']
+    search_fields = ['name']
+    ordering = ['-id']
+
+
+@admin.register(PhraseUserStat)
+class PhraseUserStatAdmin(admin.ModelAdmin):
+    list_display = ('user', 'phrase', 'trained_count', 'guessed_count', 'guessed_ratio')
+    autocomplete_fields = ['user', 'phrase']
+    search_fields = ['user', 'phrase']
+    ordering = ['-modified']
+
+
+@admin.register(DictionaryUserStat)
+class DictionaryUserStatAdmin(admin.ModelAdmin):
+    list_display = ('user', 'dict', 'kind', 'trained_count', 'guessed_count')
+    autocomplete_fields = ['user', 'dict']
+    ordering = ['-modified']

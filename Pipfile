@@ -11,6 +11,9 @@ django-docker-helpers = "*"
 uwsgi = "*"
 hiredis = "*"
 django-model-utils = "*"
+pytelegrambotapi = "*"
+requests = "==2.10.0"   # https://github.com/eternnoir/pyTelegramBotAPI/issues/499#issuecomment-387101672
+raven = "*"
 
 [dev-packages]
 

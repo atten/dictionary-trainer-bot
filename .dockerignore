@@ -2,6 +2,7 @@
 .git/
 .idea/
 .vscode/
+.pytest_cache/
 docker/
 dictrainer/config/
 dictrainer/media/

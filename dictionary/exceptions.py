@@ -1,0 +1,2 @@
+class PhraseGroupCreateError(Exception):
+    pass
