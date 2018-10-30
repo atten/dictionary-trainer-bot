@@ -7,6 +7,7 @@ from model_utils import Choices
 from model_utils.models import TimeStampedModel
 
 import dictrainer
+from bot.querysets import TelegramMessageEntityQuerySet
 
 USER_STATES = Choices(
     'wait_nothing',
@@ -39,6 +40,7 @@ class TelegramProfile(models.Model):
 class TelegramLogEntry(models.Model):
     profile = models.ForeignKey(TelegramProfile, on_delete=CASCADE, related_name='logs')
     text = models.TextField(help_text=_('Message from user'), max_length=128)
+    text_length = models.IntegerField(default=0)
     response = models.CharField(help_text=_('Response to user'), max_length=128)
     version = models.CharField(max_length=64, default=dictrainer.__version__, editable=False)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -50,11 +52,19 @@ class TelegramLogEntry(models.Model):
     def __str__(self):
         return _('LogEntry #{0}').format(self.id)
 
+    def save(self, *args, **kwargs):
+        self.text_length = len(self.text)
+        self.text = self.text[:128]
+        self.response = self.response[:128]
+        return super().save(*args, **kwargs)
+
 
 class TelegramMessageEntity(models.Model):
     chat_id = models.IntegerField()
     message_id = models.IntegerField()
     phrases = models.ManyToManyField('dictionary.Phrase', related_name='messages')
+
+    objects = TelegramMessageEntityQuerySet.as_manager()
 
     class Meta:
         unique_together = [

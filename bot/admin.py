@@ -11,7 +11,7 @@ class TelegramProfileAdmin(admin.ModelAdmin):
 
 @admin.register(TelegramLogEntry)
 class TelegramLogEntryAdmin(admin.ModelAdmin):
-    list_display = ('profile', 'text', 'response', 'timestamp', 'version')
+    list_display = ('profile', 'text', 'text_length', 'response', 'timestamp', 'version')
     list_filter = ('profile',)
     search_fields = ['id', 'profile', 'text', 'response']
 

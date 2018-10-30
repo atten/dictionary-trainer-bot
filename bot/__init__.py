@@ -18,6 +18,7 @@ def run_bot():
     while 1:
         try:
             bot.polling(none_stop=True)
-        except ReadTimeout:
-            print('read timeout, reconnect')
+            break
+        except ReadTimeout as e:
+            print(e)
             pass

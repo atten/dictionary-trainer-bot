@@ -226,3 +226,4 @@ BOT = {
 
 # dictionary
 RECENT_PHRASES = configure('dictionary.recent_phrases', 40, coerce_type=int)
+DICT_CONTENTS_PAGE_SIZE = 10

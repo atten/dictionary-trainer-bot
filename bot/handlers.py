@@ -1,14 +1,13 @@
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
-from telebot.types import Message, CallbackQuery, InlineQuery, \
-    InlineQueryResultArticle, InputTextMessageContent
+from telebot.types import Message, CallbackQuery
 
 from bot import responses
 from bot.models import USER_STATES
-from bot.utils import get_user, CallbackHandler
+from bot.utils import get_user, CallbackHandler, str_to_int
 from bot import bot
-from dictionary.models import Dictionary, Language, Phrase, DictionaryUserStat, PhraseUserStat
+from dictionary.models import Dictionary, Language, Phrase, DictionaryUserStat
 
 
 @bot.message_handler(commands=['start'])
@@ -50,6 +49,21 @@ def select_dictionary(callback: CallbackQuery, user: User, dict_id: str):
         responses.dictionary_detail(dictionary, user).replace_prev(callback)
     else:
         responses.dict_list(qs, text=_('Dictionary not found.')).replace_prev(callback)
+
+
+@CallbackHandler
+def dict_contents(callback: CallbackQuery, user: User, dict_id: str, offset: str, count: str, src_lang_id: str, dst_lang_id: str):
+    qs = Dictionary.objects.for_user(user)
+    dictionary = qs.filter(id=dict_id).first()
+    src_lang = Language.objects.filter(id=src_lang_id).first()
+    dst_lang = Language.objects.filter(id=dst_lang_id).first()
+
+    if dictionary and src_lang and dst_lang:
+        responses.dict_contents(
+            dictionary, offset=str_to_int(offset), count=str_to_int(count), src_lang=src_lang, dst_lang=dst_lang
+        ).replace_prev(callback)
+    else:
+        responses.dict_list(qs, text=_('Language or dictionary not found.')).replace_prev(callback)
 
 
 @CallbackHandler
@@ -103,7 +117,7 @@ def dict_training_phrase(callback: CallbackQuery, user: User, dict_id: str, phra
 
     # убираем клавиатуру в предыдущем сообщении и показываем перевод
     bot.edit_message_text(
-        phrase.verbose_synonyms(dst_lang),
+        phrase.verbose_translations(dst_lang),
         chat_id=callback.message.chat.id,
         message_id=callback.message.message_id,
     )

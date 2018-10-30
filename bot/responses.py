@@ -1,3 +1,6 @@
+from math import ceil, floor
+
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _, ngettext, gettext
@@ -31,11 +34,7 @@ class Response:
             parse_mode=self.parse_mode
         )
 
-        TelegramLogEntry.objects.create(
-            text=msg.text[:128],
-            profile_id=msg.chat.id,
-            response=str(self)[:128]
-        )
+        TelegramLogEntry(text=msg.text, profile_id=msg.chat.id, response=str(self)).save()
 
     def answer_to_callback(self, callback: CallbackQuery):
         bot.send_message(
@@ -45,11 +44,7 @@ class Response:
             parse_mode=self.parse_mode
         )
 
-        TelegramLogEntry.objects.create(
-            text=callback.data[:128],
-            profile_id=callback.message.chat.id,
-            response=str(self)[:128]
-        )
+        TelegramLogEntry(text=callback.data, profile_id=callback.message.chat.id, response=str(self)).save()
 
     def replace_prev(self, callback: CallbackQuery):
         msg = callback.message
@@ -61,11 +56,7 @@ class Response:
             parse_mode=self.parse_mode
         )
 
-        TelegramLogEntry.objects.create(
-            text=callback.data[:128],
-            profile_id=msg.chat.id,
-            response=str(self)[:128]
-        )
+        TelegramLogEntry(text=callback.data, profile_id=msg.chat.id, response=str(self)).save()
 
 
 def commands_list(text=None) -> Response:
@@ -150,6 +141,28 @@ def create_dictionary(user: User, name: str) -> Response:
         return dictionary_detail(dictionary, user)
     except IntegrityError:
         return dictionary_create_error(name)
+
+
+def dict_contents(dictionary: Dictionary, offset: int, count: int, src_lang: Language, dst_lang: Language) -> Response:
+    if count < 1 or count > settings.DICT_CONTENTS_PAGE_SIZE * 3:
+        return Response(_('Invalid callback data'))
+
+    qs = Phrase.objects.filter(phrase_groups__dictionaries=dictionary, lang=src_lang).order_by('text')
+    total_count = qs.count()
+    text = '\n'.join([
+        phrase.verbose_translations(dst_lang) for phrase in qs[offset:offset+count]
+    ])
+    if not total_count:
+        return Response(_('No phrases found'))
+
+    page = floor(offset / count) + 1
+    last_page = ceil(total_count / count)
+    text = _('Page %d/%d\n\n%s') % (page, last_page, text)
+
+    return Response(
+        text=text,
+        reply_markup=kb.dict_contents_paginator(dictionary, qs, offset=offset, count=count, src_lang=src_lang, dst_lang=dst_lang)
+    )
 
 
 def delete_dictionary_request(dictionary: Dictionary) -> Response:

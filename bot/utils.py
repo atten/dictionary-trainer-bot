@@ -1,12 +1,12 @@
 from collections import namedtuple
 from inspect import signature
-from telebot.types import InlineKeyboardButton, CallbackQuery
+import re
 
 from django.db import transaction
 from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
 from django.utils.encoding import force_text
-from telebot.types import Message
+from telebot.types import Message, InlineKeyboardButton, CallbackQuery
 
 from bot import bot
 from bot.commands import COMMANDS
@@ -96,3 +96,16 @@ def get_user(msg: Message, update_state: bool = True) -> User:
     if update_state:
         update_user_state(profile, msg)
     return user
+
+
+def str_to_int(s):
+    """
+    Гарантированно вернёт число из строки.
+    """
+    if s is None:
+        return 0
+    try:
+        return int(s)
+    except ValueError:
+        nums = re.findall(r'\d+', s)
+        return int(nums[0]) if len(nums) else 0

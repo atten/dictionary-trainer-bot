@@ -62,25 +62,25 @@ class Phrase(TimeStampedModel):
     def __str__(self):
         return f'{self.text} [{self.lang.code}]'
 
-    def synonyms(self, lang: Language):
+    def translations(self, lang: Language):
         return Phrase.objects.filter(phrase_groups__in=self.phrase_groups.all(), lang=lang)
 
-    def verbose_synonyms(self, lang: Language):
+    def verbose_translations(self, lang: Language):
         """
         возвращает "Фраза - Перевод1, Перевод2" или "Фраза", если переводов нет.
         переводы находятся с данной фразой в одной PhraseGroup
         """
-        synonyms = list(self.synonyms(lang).values_list('text', flat=True))
-        if not synonyms:
+        translations = list(self.translations(lang).values_list('text', flat=True))
+        if not translations:
             return self.text
 
-        synonyms = ', '.join(synonyms)
-        return f'{self.text} - {synonyms}'
+        translations = ', '.join(translations)
+        return f'{self.text} - {translations}'
 
     def guessed_or_not(self, user, dictionary, is_guessed):
         # добавляет синонимы фразы на том же языке в кэш
         bucket = Phrase.objects.get_user_lang_bucket(user, self.lang)
-        self.synonyms(self.lang).push_recent_phrase(bucket)
+        self.translations(self.lang).push_recent_phrase(bucket)
 
         DictionaryUserStat.objects.get_training_stat_for_user(dictionary, user).increment_trained(is_guessed=is_guessed)
         DictionaryUserStat.objects.get_total_stat_for_user(dictionary, user).increment_trained(is_guessed=is_guessed)
