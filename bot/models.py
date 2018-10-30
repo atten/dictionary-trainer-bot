@@ -20,8 +20,8 @@ class TelegramProfile(models.Model):
     current_dict = models.ForeignKey('dictionary.Dictionary', blank=True, null=True, on_delete=SET_NULL)
 
     class Meta:
-        verbose_name = _('Telegram profile')
-        verbose_name_plural = _('Telegram profiles')
+        verbose_name = _('Profile')
+        verbose_name_plural = _('Profiles')
 
     def __str__(self):
         return str(self.user)
@@ -49,3 +49,21 @@ class TelegramLogEntry(models.Model):
 
     def __str__(self):
         return _('LogEntry #{0}').format(self.id)
+
+
+class TelegramMessageEntity(models.Model):
+    chat_id = models.IntegerField()
+    message_id = models.IntegerField()
+    phrases = models.ManyToManyField('dictionary.Phrase', related_name='messages')
+
+    class Meta:
+        unique_together = [
+            ['chat_id', 'message_id']
+        ]
+
+        index_together = [
+            ['chat_id', 'message_id']
+        ]
+
+        verbose_name = _('Message-related entity')
+        verbose_name_plural = _('Message-related entities')

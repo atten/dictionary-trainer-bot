@@ -1,12 +1,12 @@
 from django.contrib.auth.models import User
 from django.utils.encoding import force_text
-from django.utils.translation import ugettext_lazy as _, ngettext
+from django.utils.translation import ugettext_lazy as _, ngettext, gettext
 from django.db import IntegrityError, transaction
 from django.db.models import QuerySet
 
 from telebot.types import Message, CallbackQuery
 
-from bot.models import TelegramLogEntry
+from bot.models import TelegramLogEntry, TelegramMessageEntity
 from bot import keyboards as kb
 from bot.commands import COMMANDS, commands_as_text
 from bot import bot
@@ -38,7 +38,6 @@ class Response:
         )
 
     def answer_to_callback(self, callback: CallbackQuery):
-        # TODO: bot.answer_callback_query, не?
         bot.send_message(
             callback.message.chat.id,
             force_text(self.text),
@@ -136,7 +135,7 @@ def dictionary_create_error(name: str) -> Response:
 
 def create_dictionary_input() -> Response:
     return Response(
-        text=_('Input name of new dictionary, e.g. Food (or People or Activities etc):')
+        text=_('Input a name for your new dictionary, e.g. "Primary dict" (or "Phrasebook" or "Test" etc):')
     )
 
 
@@ -186,7 +185,7 @@ def training_done(stats: DictionaryUserStat) -> Response:
     )
 
 
-def add_phrase_groups(user: User, input_str: str) -> Response:
+def add_phrase_groups(user: User, msg: Message) -> Response:
     dictionary = user.tg.current_dict
 
     if not dictionary:
@@ -199,11 +198,14 @@ def add_phrase_groups(user: User, input_str: str) -> Response:
     phrases_count = 0
     try:
         with transaction.atomic():
-            for line in input_str.split('\n'):
+            for line in msg.text.split('\n'):
                 group = PhraseGroup.create_from_input(line, user)
                 dictionary.phrase_groups.add(group)
                 groups_count += 1
                 phrases_count += group.phrases.count()
+
+                msg_entity = TelegramMessageEntity.objects.create(chat_id=msg.chat.id, message_id=msg.message_id)
+                msg_entity.phrases.add(*list(group.phrases.ids()))
     except PhraseGroupCreateError as e:
         return Response(e)
 
@@ -215,3 +217,15 @@ def add_phrase_groups(user: User, input_str: str) -> Response:
                                                                    phrases_verbose, dictionary)
     )
 
+
+def replace_phrase_groups(user, msg: Message) -> Response:
+    entity = TelegramMessageEntity.objects.filter(chat_id=msg.chat.id, message_id=msg.message_id).first()
+
+    if not entity or not entity.phrases.count():
+        return Response('Nothing to edit (no phrases found in this message)')
+
+    entity.phrases.delete()
+    entity.delete()
+    resp = add_phrase_groups(user, msg)
+    resp.text = resp.text.replace(gettext('Added'), gettext('Edited'))
+    return resp

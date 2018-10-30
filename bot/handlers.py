@@ -134,6 +134,14 @@ def answer(msg: Message):
     if user.tg.state == USER_STATES.wait_input__create_dict:
         responses.create_dictionary(user, msg.text).answer_to(msg)
     elif ' - ' in msg.text:
-        responses.add_phrase_groups(user, msg.text).answer_to(msg)
+        responses.add_phrase_groups(user, msg).answer_to(msg)
     else:
         responses.commands_list(_('Unknown command.')).answer_to(msg)
+
+
+@bot.edited_message_handler()
+def edit(msg: Message):
+    user = get_user(msg, update_state=False)
+    resp = responses.replace_phrase_groups(user, msg)
+    if resp.text:
+        resp.answer_to(msg)

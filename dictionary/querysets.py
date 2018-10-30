@@ -3,7 +3,7 @@ from typing import List
 from string import ascii_letters
 
 from django.core.cache import cache
-from django.db.models import QuerySet, Q
+from django.db.models import QuerySet, Q, Count
 from django.contrib.auth.models import User
 from django.conf import settings
 
@@ -22,8 +22,11 @@ class LanguageQuerySet(QuerySet):
 
 class RandomizeQuerySet(QuerySet):
 
+    def ids(self):
+        return self.values_list('id', flat=True)
+
     def pick_random(self):
-        ids = self.values_list('id', flat=True)
+        ids = self.ids()
         return self.get(id=random.choice(ids)) if ids else None
 
 
@@ -82,9 +85,29 @@ class PhraseQuerySet(RandomizeQuerySet):
             return self.get(id=recent_ids[-1])
         return phrase
 
+    def orphans(self):
+        return self.filter(phrase_groups=None)
+
+    def phrase_groups(self):
+        from .models import PhraseGroup
+        ids = self.values_list('phrase_groups', flat=True)
+        return PhraseGroup.objects.filter(id__in=list(ids))
+
+    def delete(self):
+        groups = self.phrase_groups()
+        ret = super().delete()
+        # следом удаляем пустые группы
+        groups.empty().delete()
+        return ret
+
 
 class PhraseGroupQuerySet(RandomizeQuerySet):
-    pass
+
+    def empty(self):
+        return self.annotate(phrases_count=Count('phrases')).filter(phrases_count=0)
+
+    def orphans(self):
+        return self.filter(dictionaries=None)
 
 
 class PhraseUserStatQuerySet(QuerySet):
