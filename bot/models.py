@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import SET_NULL, CASCADE
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
 from model_utils import Choices
@@ -15,7 +16,11 @@ USER_STATES = Choices(
 )
 
 
-class TelegramProfile(models.Model):
+def current_version() -> str:
+    return dictrainer.__version__
+
+
+class TelegramProfile(TimeStampedModel):
     user = models.OneToOneField(User, on_delete=CASCADE, related_name='tg')
     state = models.CharField(choices=USER_STATES, default=USER_STATES.wait_nothing, max_length=64)
     current_dict = models.ForeignKey('dictionary.Dictionary', blank=True, null=True, on_delete=SET_NULL)
@@ -36,13 +41,17 @@ class TelegramProfile(models.Model):
     def reset_state(self, save=True):
         self.set_state(USER_STATES.wait_nothing, save)
 
+    @cached_property
+    def last_action_dt(self):
+        return self.logs.only('timestamp').last().timestamp
+
 
 class TelegramLogEntry(models.Model):
     profile = models.ForeignKey(TelegramProfile, on_delete=CASCADE, related_name='logs')
     text = models.TextField(help_text=_('Message from user'), max_length=128)
     text_length = models.IntegerField(default=0)
     response = models.CharField(help_text=_('Response to user'), max_length=128)
-    version = models.CharField(max_length=64, default=dictrainer.__version__, editable=False)
+    version = models.CharField(max_length=64, default=current_version, editable=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:

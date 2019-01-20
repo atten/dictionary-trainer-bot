@@ -109,3 +109,22 @@ def str_to_int(s):
     except ValueError:
         nums = re.findall(r'\d+', s)
         return int(nums[0]) if len(nums) else 0
+
+
+def fix_input_uppercase(line: str) -> str:
+    """
+    Убирает верхний регистр первого символа, если это единственный символ в строке в верхнем регистре.
+    Полезно для ввода с телефонов.
+
+    'abc' -> 'abc'
+    'Abc' -> 'abc'
+    'ABC' -> 'ABC'
+    """
+    if not line:
+        return line
+
+    has_uppercase_after = any(map(lambda x: x.isupper(), line[1:]))
+    if has_uppercase_after:
+        return line
+
+    return line[0].lower() + line[1:]

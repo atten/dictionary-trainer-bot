@@ -13,6 +13,7 @@ class LanguageAdmin(admin.ModelAdmin):
 class PhraseAdmin(admin.ModelAdmin):
     list_display = ('lang', 'user', 'text', 'created', 'modified')
     autocomplete_fields = ['lang', 'user']
+    list_filter = ('user',)
     search_fields = ['text']
     ordering = ['-id']
 

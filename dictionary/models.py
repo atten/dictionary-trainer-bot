@@ -65,7 +65,7 @@ class Phrase(TimeStampedModel):
     def translations(self, lang: Language):
         return Phrase.objects.filter(phrase_groups__in=self.phrase_groups.all(), lang=lang)
 
-    def verbose_translations(self, lang: Language):
+    def verbose_translations(self, lang: Language) -> str:
         """
         возвращает "Фраза - Перевод1, Перевод2" или "Фраза", если переводов нет.
         переводы находятся с данной фразой в одной PhraseGroup

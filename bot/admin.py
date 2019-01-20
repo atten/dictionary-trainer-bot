@@ -5,7 +5,7 @@ from .models import TelegramProfile, TelegramLogEntry, TelegramMessageEntity
 
 @admin.register(TelegramProfile)
 class TelegramProfileAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user')
+    list_display = ('id', 'user', 'created', 'last_action_dt')
     search_fields = ['id', 'user']
 
 

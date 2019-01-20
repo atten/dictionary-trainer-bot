@@ -16,7 +16,13 @@ class LanguageQuerySet(QuerySet):
 
         # TODO: годится только для internal use
         if text[0] in ascii_letters:
-            return self.get(code='en')
+            return self.english()
+        return self.russian()
+
+    def english(self):
+        return self.get(code='en')
+
+    def russian(self):
         return self.get(code='ru')
 
 

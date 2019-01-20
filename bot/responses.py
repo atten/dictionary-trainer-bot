@@ -13,6 +13,7 @@ from bot.models import TelegramLogEntry, TelegramMessageEntity
 from bot import keyboards as kb
 from bot.commands import COMMANDS, commands_as_text
 from bot import bot
+from bot.utils import fix_input_uppercase
 from dictionary.exceptions import PhraseGroupCreateError
 from dictionary.models import Dictionary, Language, Phrase, DictionaryUserStat, PhraseGroup
 
@@ -212,6 +213,7 @@ def add_phrase_groups(user: User, msg: Message) -> Response:
     try:
         with transaction.atomic():
             for line in msg.text.split('\n'):
+                line = fix_input_uppercase(line)
                 group = PhraseGroup.create_from_input(line, user)
                 dictionary.phrase_groups.add(group)
                 groups_count += 1
