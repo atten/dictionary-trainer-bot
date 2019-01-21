@@ -1,2 +1,2 @@
-class PhraseGroupCreateError(Exception):
+class PhraseParseInputError(Exception):
     pass

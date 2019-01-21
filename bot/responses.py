@@ -14,7 +14,7 @@ from bot import keyboards as kb
 from bot.commands import COMMANDS, commands_as_text
 from bot import bot
 from bot.utils import fix_input_uppercase
-from dictionary.exceptions import PhraseGroupCreateError
+from dictionary.exceptions import PhraseParseInputError
 from dictionary.models import Dictionary, Language, Phrase, DictionaryUserStat, PhraseGroup
 
 
@@ -212,24 +212,32 @@ def add_phrase_groups(user: User, msg: Message) -> Response:
     phrases_count = 0
     try:
         with transaction.atomic():
+            msg_entity, created = TelegramMessageEntity.objects.get_or_create(
+                chat_id=msg.chat.id, message_id=msg.message_id)
+
             for line in msg.text.split('\n'):
                 line = fix_input_uppercase(line)
-                group = PhraseGroup.create_from_input(line, user)
-                dictionary.phrase_groups.add(group)
-                groups_count += 1
-                phrases_count += group.phrases.count()
+                result = PhraseGroup.create_from_input(line, user)
 
-                msg_entity = TelegramMessageEntity.objects.create(chat_id=msg.chat.id, message_id=msg.message_id)
-                msg_entity.phrases.add(*list(group.phrases.ids()))
-    except PhraseGroupCreateError as e:
+                new_groups = result['new_groups']
+                new_phrases = result['new_phrases']
+
+                for group in new_groups:
+                    dictionary.phrase_groups.add(group)
+
+                groups_count += len(new_groups)
+                phrases_count += len(new_phrases)
+                msg_entity.phrases.add(*new_phrases)
+
+    except PhraseParseInputError as e:
         return Response(e)
 
-    phrases_verbose = ngettext(_('phrase'), _('phrases'), phrases_count)
-    groups_verbose = ngettext(_('group'), _('groups'), groups_count)
+    phrases_verbose = '{} {}'.format(phrases_count, ngettext(_('phrase'), _('phrases'), phrases_count))
+    groups_verbose = '{} {}'.format(groups_count, ngettext(_('group'), _('groups'), groups_count))
+    verbose_str = '{} with {}'.format(groups_verbose, phrases_verbose) if groups_count else phrases_verbose
 
     return Response(
-        text=_('Added {} {} with {} {} to dictionary "{}"').format(groups_count, groups_verbose, phrases_count,
-                                                                   phrases_verbose, dictionary)
+        text=_('Added {} to dictionary "{}"').format(verbose_str, dictionary)
     )
 
 

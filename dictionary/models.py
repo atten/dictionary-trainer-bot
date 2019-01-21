@@ -1,3 +1,4 @@
+from typing import List
 import itertools
 
 from django.utils.translation import ugettext_lazy as _
@@ -10,7 +11,7 @@ from model_utils import Choices
 from model_utils.models import TimeStampedModel
 
 from dictionary.querysets import LanguageQuerySet, DictionaryQuerySet, PhraseGroupQuerySet, PhraseQuerySet, DictionaryUserStatQuerySet, PhraseUserStatQuerySet
-from .exceptions import PhraseGroupCreateError
+from .exceptions import PhraseParseInputError
 
 
 class Language(models.Model):
@@ -86,6 +87,44 @@ class Phrase(TimeStampedModel):
         DictionaryUserStat.objects.get_total_stat_for_user(dictionary, user).increment_trained(is_guessed=is_guessed)
         PhraseUserStat.objects.get_stat_for_user(self, user).increment_trained(is_guessed=is_guessed)
 
+    @classmethod
+    def parse_input(cls, input_str: str, user: User) -> List['Phrase']:
+        """
+        Парсит строку вида "phrase_en_1, phrase_en_2 - phrase_ru_3, phrase_ru_4",
+        возвращает список фраз с автоопределённым языком.
+        Если в списке есть существующие фразы, вернёт их из БД.
+        """
+        parts = input_str.split(' - ')
+        langs = []
+        phrases = []
+
+        for part in parts:
+            if not part:
+                raise PhraseParseInputError(_('Error: Definition contains empty part'))
+
+            lang = Language.objects.detect(part)
+
+            if not lang:
+                raise PhraseParseInputError(_('Error: Failed to detected phrase language: {}.').format(part))
+            if lang in langs:
+                raise PhraseParseInputError(_('Error: {} language detected twice. '
+                                              'Another phrase must me in different language').format(lang))
+
+            phrases_str = [s.strip() for s in part.split(',') if s.strip()]
+            if not phrases_str:
+                raise PhraseParseInputError(_('Error: Empty phrase for language {}').format(lang))
+
+            langs.append(lang)
+            kwargs_list = [dict(user=user, text=text, lang=lang) for text in phrases_str]
+            for kwargs in kwargs_list:
+                existing = Phrase.objects.filter(**kwargs).first()
+                phrases.append(existing or Phrase(**kwargs))
+
+        if len(langs) != 2:
+            raise PhraseParseInputError(_('Error: Invalid phrases count, expect 2'))
+
+        return phrases
+
 
 class PhraseGroup(TimeStampedModel):
     phrases = models.ManyToManyField(
@@ -108,43 +147,52 @@ class PhraseGroup(TimeStampedModel):
         return self.phrases.filter(lang=language).pick_random()
 
     @classmethod
-    def create_from_input(cls, input_str: str, user: User) -> 'PhraseGroup':
-        parts = input_str.split(' - ')
-        langs = []
-        phrases = []
+    def create_from_input(cls, input_str: str, user: User) -> dict:
+        """
+        Парсит строку, получает список фраз (новых и существующих).
+        Если есть только новые фразы, создаёт новую группу и помещает их туда.
+        Если есть существующие и новые фразы, не создаёт новую группу, а помещает новые фразы в существующие группы.
+        Если нет новых фраз, вызывает исключение.
+        """
+        phrases = Phrase.parse_input(input_str, user)
+        new_phrases = []
+        existing_phrases = []
+        existing_group_ids = set()
 
-        for part in parts:
-            if not part:
-                raise PhraseGroupCreateError(_('Error: Definition contains empty part'))
+        for phrase in phrases:
+            if phrase.id:
+                existing_phrases.append(phrase)
+                existing_group_ids |= set(phrase.phrase_groups.values_list('id', flat=True))
+            else:
+                new_phrases.append(phrase)
 
-            lang = Language.objects.detect(part)
+        if not new_phrases:
+            raise PhraseParseInputError(_('Error: no new phrases found'))
 
-            if not lang:
-                raise PhraseGroupCreateError(_('Error: Failed to detected phrase language: {}.').format(part))
-            if lang in langs:
-                raise PhraseGroupCreateError(_('Error: {} language detected twice. '
-                                               'Another phrase must me in different language').format(lang))
-
-            phrases_str = [s.strip() for s in part.split(',') if s.strip()]
-            if not phrases_str:
-                raise PhraseGroupCreateError(_('Error: Empty phrase for language {}').format(lang))
-
-            langs.append(lang)
-            phrases += [Phrase(user=user, text=text, lang=lang) for text in phrases_str]
-
-        if len(langs) != 2:
-            raise PhraseGroupCreateError(_('Error: Invalid phrases count, expect 2'))
-
+        existing_groups = PhraseGroup.objects.filter(id__in=existing_group_ids)
+        new_groups = []
         try:
             with transaction.atomic():
-                Phrase.objects.bulk_create(phrases)
-                group = PhraseGroup.objects.create(user=user)
-                group.phrases.add(*phrases)
+                Phrase.objects.bulk_create(new_phrases)
 
-            return group
+                for group in existing_groups:
+                    group.phrases.add(*new_phrases)
+
+                if not existing_group_ids:
+                    # если нет существующих фраз, создаём новую группу под новые фразы
+                    group = PhraseGroup.objects.create(user=user)
+                    group.phrases.add(*new_phrases)
+                    new_groups.append(group)
+
         except IntegrityError:
-            # TODO: варианты разруливания
-            raise PhraseGroupCreateError('Database error occurs, failed to save phrases to dictionary')
+            raise PhraseParseInputError('Database error occurs, failed to save phrases to dictionary')
+
+        return {
+            'new_phrases': new_phrases,
+            'existing_phrases': existing_phrases,
+            'existing_groups': existing_groups,
+            'new_groups': new_groups
+        }
 
 
 class Dictionary(TimeStampedModel):

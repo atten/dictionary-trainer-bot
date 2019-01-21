@@ -22,7 +22,6 @@ class PhraseAdmin(admin.ModelAdmin):
 class PhraseGroupAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'created', 'modified')
     autocomplete_fields = ['user', 'dictionaries', 'phrases']
-    search_fields = ['dictionaries', 'phrases']
     ordering = ['-id']
 
 
