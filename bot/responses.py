@@ -1,3 +1,4 @@
+from collections import defaultdict
 from math import ceil, floor
 
 from django.conf import settings
@@ -252,3 +253,32 @@ def replace_phrase_groups(user, msg: Message) -> Response:
     resp = add_phrase_groups(user, msg)
     resp.text = resp.text.replace(gettext('Added'), gettext('Edited'))
     return resp
+
+
+def search_translations(user: User, template: str) -> Response:
+    """
+    в доступных юзеру словарях ищет фразы, совпадающие с шаблоном и выдаёт переводы
+    """
+    dicts = Dictionary.objects.for_user(user)
+    lines_by_dict = defaultdict(list)
+    phrases_per_dict_limit = 10
+
+    for dictionary in dicts:
+        phrases = dictionary.phrases.search(template)[:phrases_per_dict_limit]
+        for phrase in phrases:
+            languages = phrase.phrase_groups.filter(dictionaries=dictionary).languages().exclude(id=phrase.lang_id)
+            for lang in languages:
+                translation = ' - {} [{}]'.format(phrase.verbose_translations(lang), lang.code)
+                lines_by_dict[dictionary].append(translation)
+
+    if lines_by_dict:
+        response_lines = []
+        for num, (dictionary, lines) in enumerate(lines_by_dict.items()):
+            if num:
+                response_lines.append('')
+            response_lines += [f'{dictionary.name}:'] + lines
+        text = '\n'.join(response_lines)
+    else:
+        text = _('No phrases found in %d dictionaries') % dicts.count()
+
+    return Response(text=text)

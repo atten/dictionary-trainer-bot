@@ -10,7 +10,8 @@ from django.db import IntegrityError, transaction
 from model_utils import Choices
 from model_utils.models import TimeStampedModel
 
-from dictionary.querysets import LanguageQuerySet, DictionaryQuerySet, PhraseGroupQuerySet, PhraseQuerySet, DictionaryUserStatQuerySet, PhraseUserStatQuerySet
+from dictionary.querysets import LanguageQuerySet, DictionaryQuerySet, PhraseGroupQuerySet, PhraseQuerySet, \
+    DictionaryUserStatQuerySet, PhraseUserStatQuerySet
 from .exceptions import PhraseParseInputError
 
 

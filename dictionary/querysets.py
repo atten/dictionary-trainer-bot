@@ -99,6 +99,9 @@ class PhraseQuerySet(RandomizeQuerySet):
         ids = self.values_list('phrase_groups', flat=True)
         return PhraseGroup.objects.filter(id__in=list(ids))
 
+    def search(self, template: str):
+        return self.filter(text__icontains=template)
+
     def delete(self):
         groups = self.phrase_groups()
         ret = super().delete()
@@ -108,6 +111,10 @@ class PhraseQuerySet(RandomizeQuerySet):
 
 
 class PhraseGroupQuerySet(RandomizeQuerySet):
+
+    def languages(self):
+        from .models import Language
+        return Language.objects.filter(phrases__phrase_groups__in=self.ids()).distinct()
 
     def empty(self):
         return self.annotate(phrases_count=Count('phrases')).filter(phrases_count=0)

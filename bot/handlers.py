@@ -150,7 +150,7 @@ def answer(msg: Message):
     elif ' - ' in msg.text:
         responses.add_phrase_groups(user, msg).answer_to(msg)
     else:
-        responses.commands_list(_('Unknown command.')).answer_to(msg)
+        responses.search_translations(user, msg.text).answer_to(msg)
 
 
 @bot.edited_message_handler()
