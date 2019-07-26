@@ -7,6 +7,7 @@ COMMANDS = Choices(
     ('/create_dict', 'create_dict', _('Create new dictionary')),
     ('/list_dicts', 'list_dicts', _('View your dictionaries')),
     ('/dict_detail', 'dict_detail', _('View your current dictionary')),
+    ('/help', 'help', _('Readme and contacts')),
 )
 
 

@@ -61,10 +61,11 @@ class Response:
         TelegramLogEntry(text=callback.data, profile_id=msg.chat.id, response=str(self)).save()
 
 
-def commands_list(text=None) -> Response:
-    return Response(
-        commands_as_text() if not text else text + '\n' + commands_as_text()
-    )
+def commands_list(prepend_text=None, append_text=None) -> Response:
+    text = prepend_text + '\n' or ''
+    text += commands_as_text()
+    text += '\n' + append_text if append_text else ''
+    return Response(text)
 
 
 def select_your_dictionary(qs: QuerySet, text=None) -> Response:
@@ -282,3 +283,9 @@ def search_translations(user: User, template: str) -> Response:
         text = _('No phrases found in %d dictionaries') % dicts.count()
 
     return Response(text=text)
+
+
+def readme() -> Response:
+    with open('README.md') as f:
+        text = f.read()
+        return Response(text=text, parse_mode='HTML')

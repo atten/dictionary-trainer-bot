@@ -13,7 +13,9 @@ from dictionary.models import Dictionary, Language, Phrase, DictionaryUserStat
 @bot.message_handler(commands=['start'])
 def start(msg: Message):
     user = get_user(msg)
-    responses.commands_list(_("Hi %s!") % user.first_name).answer_to(msg)
+    responses.commands_list(
+        prepend_text=_("Hi %s!") % user.first_name,
+    ).answer_to(msg)
 
 
 @bot.message_handler(commands=['create_dict'])
@@ -33,6 +35,11 @@ def list_dicts(msg: Message):
     user = get_user(msg)
     qs = Dictionary.objects.for_user(user)
     responses.dict_list(qs).answer_to(msg)
+
+
+@bot.message_handler(commands=['help'])
+def readme(msg: Message):
+    responses.readme().answer_to(msg)
 
 
 @CallbackHandler
