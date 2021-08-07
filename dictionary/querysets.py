@@ -12,7 +12,7 @@ class LanguageQuerySet(QuerySet):
 
     def detect(self, text: str):
         if not text:
-            return
+            return None
 
         # TODO: годится только для internal use
         if text[0] in ascii_letters:
@@ -62,7 +62,7 @@ class PhraseQuerySet(RandomizeQuerySet):
         при этом обрезая список с конца при необходимости
         """
         ids = self.get_recent_phrases_ids(bucket)
-        new_ids = list(map(lambda x: str(x), self.values_list('id', flat=True)))
+        new_ids = list(map(str, self.values_list('id', flat=True)))
         for i in new_ids:
             if i in ids:
                 ids.remove(i)

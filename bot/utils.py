@@ -32,7 +32,7 @@ class CallbackHandler:
     def mk_button(self, label, *args, **kwargs):
         if args or kwargs:
             d = self.t(*args, **kwargs)
-            callback_data = ':'.join([self.t.__name__] + list(map(lambda x: str(x), d)))
+            callback_data = ':'.join([self.t.__name__] + list(map(str, d)))
         else:
             callback_data = self.t.__name__
 

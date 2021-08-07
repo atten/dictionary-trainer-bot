@@ -249,7 +249,7 @@ class PhraseUserStat(TimeStampedModel):
     def __str__(self):
         return _('Phrase user stat #{0}').format(self.id)
 
-    def increment_trained(self, is_guessed: bool=False):
+    def increment_trained(self, is_guessed: bool = False):
         self.trained_count += 1
         if is_guessed:
             self.guessed_count += 1
@@ -283,7 +283,7 @@ class DictionaryUserStat(TimeStampedModel):
     def guessed_ratio(self) -> float:
         return 1.0 * self.guessed_count / self.trained_count if self.trained_count else 0.0
 
-    def increment_trained(self, is_guessed: bool=False):
+    def increment_trained(self, is_guessed: bool = False):
         self.trained_count += 1
         if is_guessed:
             self.guessed_count += 1
