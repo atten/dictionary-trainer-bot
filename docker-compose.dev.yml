@@ -2,7 +2,7 @@ version: '3'
 services:
 
   postgres_dev:
-    image: 'postgres:10-alpine'
+    image: 'postgres:13-alpine'
     restart: unless-stopped
     environment:
       - POSTGRES_DATABASE=dictrainer
@@ -11,7 +11,7 @@ services:
     volumes:
       - 'postgres_dev:/var/lib/postgresql/data'
     ports:
-      - '5436:5432'
+      - '5437:5432'
 
   redis_dev:
     image: redis:alpine

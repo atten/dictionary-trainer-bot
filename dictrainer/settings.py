@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.sessions',
-    # 'django.contrib.messages',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
     # 'django.contrib.sites',
@@ -203,12 +203,16 @@ REST_FRAMEWORK = {
 }
 
 # RAVEN
-if configure('raven', False):
-    INSTALLED_APPS += ['raven.contrib.django.raven_compat']
-    RAVEN_CONFIG = {
-        'dsn': configure('raven.dsn', None),
-        'release': __version__,
-    }
+if configure('sentry', False):
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=configure('sentry.dsn', None),
+        release=__version__,
+        integrations=[DjangoIntegration()],
+        send_default_pii=True,  # include user
+    )
 
 
 # MODULES

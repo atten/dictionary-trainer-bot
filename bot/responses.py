@@ -3,8 +3,7 @@ from math import ceil, floor
 
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.utils.encoding import force_text
-from django.utils.translation import ugettext_lazy as _, ngettext, gettext
+from django.utils.translation import gettext_lazy as _, ngettext
 from django.db import IntegrityError, transaction
 from django.db.models import QuerySet
 
@@ -26,12 +25,12 @@ class Response:
         self.parse_mode = parse_mode
 
     def __str__(self):
-        return force_text(self.text)
+        return str(self.text)
 
     def answer_to(self, msg: Message):
         bot.send_message(
             msg.chat.id,
-            force_text(self.text),
+            str(self.text),
             reply_markup=self.reply_markup,
             parse_mode=self.parse_mode
         )
@@ -41,7 +40,7 @@ class Response:
     def answer_to_callback(self, callback: CallbackQuery):
         bot.send_message(
             callback.message.chat.id,
-            force_text(self.text),
+            str(self.text),
             reply_markup=self.reply_markup,
             parse_mode=self.parse_mode
         )
@@ -51,7 +50,7 @@ class Response:
     def replace_prev(self, callback: CallbackQuery):
         msg = callback.message
         bot.edit_message_text(
-            force_text(self.text),
+            str(self.text),
             chat_id=msg.chat.id,
             message_id=msg.message_id,
             reply_markup=self.reply_markup,
@@ -113,7 +112,7 @@ def dictionary_detail(dictionary: Dictionary, user: User) -> Response:
         lines.append(_(' - {0}: {1}/{2} words ({3:.2%})').format(k, v['trained_phrases_count'], v['phrases_count'], v['trained_ratio']))
 
     lines.append(_('What do you want to do?'))
-    lines = [force_text(s) for s in lines]
+    lines = [str(s) for s in lines]
     return Response(
         text='\n'.join(lines),
         parse_mode='HTML',
@@ -194,7 +193,7 @@ def training_done(stats: DictionaryUserStat) -> Response:
         _('  trained words count: {}').format(stats.trained_count),
         _('  guessed: {0:.2%}').format(stats.guessed_ratio)
     ]
-    lines = [force_text(s) for s in lines]
+    lines = [str(s) for s in lines]
     return Response(
         text='\n'.join(lines),
         reply_markup=kb.back_to_dict(stats.dict)
@@ -252,7 +251,7 @@ def replace_phrase_groups(user, msg: Message) -> Response:
     entity.phrases.delete()
     entity.delete()
     resp = add_phrase_groups(user, msg)
-    resp.text = resp.text.replace(gettext('Added'), gettext('Edited'))
+    resp.text = resp.text.replace(_('Added'), _('Edited'))
     return resp
 
 

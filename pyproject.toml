@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "dictrainer"
+version = "1.0.0"
+description = ""
+authors = ["atten <art@force.fm>"]
+license = "GPL"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.1"
+django-redis-cache = "^3.0.1"
+psycopg2-binary = "^2.9.3"
+uWSGI = "^2.0.20"
+hiredis = "^2.0.0"
+django-model-utils = "^4.2.0"
+pyTelegramBotAPI = "^4.6.1"
+requests = {version = "^2.28.1", extras = ["socks"]}
+sentry-sdk = "^1.9.2"
+django-docker-helpers = "^0.2.0"
+
+[tool.poetry.dev-dependencies]
+bumpversion = "^0.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

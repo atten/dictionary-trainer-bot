@@ -5,7 +5,6 @@ import re
 from django.db import transaction
 from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
-from django.utils.encoding import force_text
 from telebot.types import Message, InlineKeyboardButton, CallbackQuery
 
 from bot import bot
@@ -26,17 +25,17 @@ class CallbackHandler:
 
         CALLBACK_FUNC_HANDLERS[name] = func_handler
 
-    def __call__(self, label, *args, **kwargs):
+    def __call__(self, label: str, *args, **kwargs):
         return self.mk_button(label, *args, **kwargs)
 
-    def mk_button(self, label, *args, **kwargs):
+    def mk_button(self, label: str, *args, **kwargs):
         if args or kwargs:
             d = self.t(*args, **kwargs)
             callback_data = ':'.join([self.t.__name__] + list(map(str, d)))
         else:
             callback_data = self.t.__name__
 
-        return InlineKeyboardButton(force_text(label), callback_data=callback_data)
+        return InlineKeyboardButton(label, callback_data=callback_data)
 
 
 @bot.callback_query_handler(func=lambda x: True)

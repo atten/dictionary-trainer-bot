@@ -1,0 +1,24 @@
+stages:
+  - build
+
+variables:
+  DEFAULT_IMAGE: '$CI_REGISTRY_IMAGE:latest'
+  IMAGE: '$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG'
+  DATA_SCHEMA_DIR: 'data-schema'
+
+build:
+  stage: build
+  image: docker:stable-git
+  services:
+    - docker:stable-dind
+  only:
+    variables:
+      # run for protected branches only
+      - $CI_COMMIT_REF_PROTECTED == 'true'
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker pull $DEFAULT_IMAGE || true
+    - docker pull $IMAGE || true
+    - docker build --cache-from $IMAGE --cache-from $DEFAULT_IMAGE -t $IMAGE -t $DEFAULT_IMAGE .
+    - docker push $DEFAULT_IMAGE
+    - docker push $IMAGE

@@ -4,7 +4,7 @@ from bot import run_bot
 
 
 class Command(BaseCommand):
-    requires_system_checks = False
+    requires_system_checks = []
 
     def handle(self, *args: tuple, **options: dict):
         run_bot()

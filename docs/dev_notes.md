@@ -16,3 +16,11 @@
     Artem Vasilev, [24.04.19 14:35]
     подводя итог - to recap
     ```
+
+- fix this:
+
+    ```
+    смириться - put up with
+    
+    No phrases found in 3 dictionaries
+    ```
