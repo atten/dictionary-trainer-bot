@@ -1,3 +1,6 @@
+from datetime import datetime
+from typing import Optional
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import SET_NULL, CASCADE
@@ -42,8 +45,9 @@ class TelegramProfile(TimeStampedModel):
         self.set_state(USER_STATES.wait_nothing, save)
 
     @cached_property
-    def last_action_dt(self):
-        return self.logs.only('timestamp').last().timestamp
+    def last_action_dt(self) -> Optional[datetime]:
+        last_log_entry = self.logs.only('timestamp').last()
+        return last_log_entry.timestamp if last_log_entry else None
 
 
 class TelegramLogEntry(models.Model):
