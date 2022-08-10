@@ -1,7 +1,7 @@
 from math import ceil, floor
 
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 from django.db.models import QuerySet
 from django.conf import settings
 

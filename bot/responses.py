@@ -3,7 +3,7 @@ from math import ceil, floor
 
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _, ngettext
+from django.utils.translation import gettext as _, ngettext
 from django.db import IntegrityError, transaction
 from django.db.models import QuerySet
 
@@ -19,18 +19,18 @@ from dictionary.models import Dictionary, Language, Phrase, DictionaryUserStat, 
 
 
 class Response:
-    def __init__(self, text, reply_markup=None, parse_mode=None):
+    def __init__(self, text: str, reply_markup=None, parse_mode=None):
         self.text = text
         self.reply_markup = reply_markup
         self.parse_mode = parse_mode
 
     def __str__(self):
-        return str(self.text)
+        return self.text
 
     def answer_to(self, msg: Message):
         bot.send_message(
             msg.chat.id,
-            str(self.text),
+            self.text,
             reply_markup=self.reply_markup,
             parse_mode=self.parse_mode
         )
@@ -40,7 +40,7 @@ class Response:
     def answer_to_callback(self, callback: CallbackQuery):
         bot.send_message(
             callback.message.chat.id,
-            str(self.text),
+            self.text,
             reply_markup=self.reply_markup,
             parse_mode=self.parse_mode
         )
@@ -50,7 +50,7 @@ class Response:
     def replace_prev(self, callback: CallbackQuery):
         msg = callback.message
         bot.edit_message_text(
-            str(self.text),
+            self.text,
             chat_id=msg.chat.id,
             message_id=msg.message_id,
             reply_markup=self.reply_markup,

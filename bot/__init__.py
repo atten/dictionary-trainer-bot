@@ -17,7 +17,7 @@ def run_bot():
 
     while 1:
         try:
-            bot.polling(none_stop=True)
+            bot.polling(non_stop=True)
             break
         except ReadTimeout as e:
             print(e)
