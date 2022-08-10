@@ -25,7 +25,7 @@ ADD . .
 RUN mkdir /app/dictrainer/static && \
     mkdir /app/dictrainer/media && \
     mkdir /app/dictrainer/usermedia && \
-    adduser -D -u 1000 appuser -h /app && chown -R appuser: /app
+    adduser --no-create-home --uid 1000 appuser --home /app && chown -R appuser: /app
 
 USER appuser
 
