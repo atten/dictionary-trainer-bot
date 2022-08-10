@@ -1,8 +1,10 @@
+from time import sleep
+
 import telebot
 from django_docker_helpers.utils import run_env_once
 
 from django.conf import settings
-from requests.exceptions import ReadTimeout
+from requests.exceptions import ReadTimeout, ConnectionError
 
 assert settings.BOT['TOKEN'], 'BOT TOKEN unassigned!'
 
@@ -18,7 +20,7 @@ def run_bot():
     while 1:
         try:
             bot.polling(non_stop=True)
-            break
-        except ReadTimeout as e:
+        except (ReadTimeout, ConnectionError) as e:
             print(e)
-            pass
+            print('reconnect in 1s...')
+            sleep(1)

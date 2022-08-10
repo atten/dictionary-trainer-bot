@@ -9,8 +9,8 @@ dictrainer/static/*
 
 # Config files except example
 dictrainer/config/*.yml
-docker/config/dictrainer-docker.yml
 !dictrainer/config/example.yml
+ci/docker/dictrainer-config.yml
 
 # Sphinx built documentation
 docs/_build/

@@ -3,7 +3,7 @@
 .idea/
 .vscode/
 .pytest_cache/
-docker/
+ci/
 dictrainer/config/
 dictrainer/media/
 dictrainer/static/

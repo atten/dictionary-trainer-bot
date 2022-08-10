@@ -1,0 +1,49 @@
+version: '3'
+services:
+  web:
+    image: "registry.gitlab.com/atten0/dictionary-trainer-bot:${DOCKER_IMAGES_TAG}"
+    restart: unless-stopped
+    links:
+      - redis
+    command: "uwsgi --socket 0.0.0.0:8000 --module=dictrainer.wsgi:application --processes=1 --threads=1"
+    environment:
+      PRODUCTION: 1
+      DJANGO_CONFIG_FILE_NAME: dictrainer-config.yml
+    volumes:
+      - "./dictrainer-config.yml:/app/dictrainer/config/dictrainer-config.yml"
+      - "static:/app/dictrainer/static/"
+
+  bot:
+    image: "registry.gitlab.com/atten0/dictionary-trainer-bot:${DOCKER_IMAGES_TAG}"
+    restart: unless-stopped
+    links:
+      - redis
+    command: "./manage.py run_bot"
+    environment:
+      PRODUCTION: 0
+      DJANGO_CONFIG_FILE_NAME: dictrainer-config.yml
+    volumes:
+      - "./dictrainer-config.yml:/app/dictrainer/config/dictrainer-config.yml"
+      - "static:/app/static/"
+
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - 'redis:/data'
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    links:
+      - web
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx-proxy.conf:/etc/nginx/conf.d/proxy.conf"
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+      - "static:/app/static/"
+
+volumes:
+  static: {}
+  redis: {}
