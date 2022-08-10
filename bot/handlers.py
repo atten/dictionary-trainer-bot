@@ -20,7 +20,7 @@ def start(msg: Message):
 
 @bot.message_handler(commands=['create_dict'])
 def create_dict(msg: Message):
-    get_user(msg)
+    get_user(msg)   # ensure user exists
     responses.create_dictionary_input().answer_to(msg)
 
 
@@ -39,6 +39,7 @@ def list_dicts(msg: Message):
 
 @bot.message_handler(commands=['help'])
 def readme(msg: Message):
+    get_user(msg)   # ensure user exists
     responses.readme().answer_to(msg)
 
 
